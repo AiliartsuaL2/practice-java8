@@ -13,6 +13,14 @@ public class PracticeStream {
     public static void main(String[] args) {
 
         /**
+         * Stream 연산들은 매개변수로 함수형 인터페이스를 받도록 되어있음.
+         * 람다식은 반환값으로 함수형 인터페이스를 반환하고 있다.
+         *
+         * Stream API는 원본의 데이터를 조회하여 원본의 데이터가 아닌 별도의 요소들로 STream 생성, 단순히 원본 데이터를 읽기만 함, 정렬이나 필터링등의 작업은 별도의 Stream 요소들에서 처리가 된다.
+         * Stream API는 일회용이기 때문에 한 번 사용이 끝나면 재사용이 불가능하다. >> Stream이 또 필요한 경우 Stream을 다시 생성해줘야 함, 닫힌 Stream 사용시, IllegalStateException 발생
+         * Stream API는 메소드 내부에 반복 문법을 숨기고 있기 때문에 보다 간결한 코드의 작성이 가능하다.
+         *
+         *
          *         Todo 스트림 생성하기
          */
 
