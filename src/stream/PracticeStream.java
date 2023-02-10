@@ -88,17 +88,56 @@ public class PracticeStream {
         List<String> names = asList("Eric", "Elena", "Jav");
 
         /**
-         * Filtering
+         * filter() : 조건에 맞지 않는 요소 제거
+         * param : Predicate<T> predicate
          * 인자로 받는 Predicate는 boolean을 리턴해주는 함수형 인터페이스로 평가식이 들어간다.
          */
         names.stream().filter(name -> name.contains("a")); // a가 들어간 이름만 스트림이 리턴
 
         /**
-         * Mapping
+         * map() : 스트림의 요소 변환
+         * param : Function<T,R> mapper
          * 값을 변환하기위한 람다를 인자로 받는다.
          * 스트림 요소들이 input되고 람다를 거쳐 output이 새로운 스트림에 담긴다.
          */
         Stream<String> bigNames = names.stream().map(String::toUpperCase); // 대문자로 변환한 값들이 담긴 스트림으로 리턴
+
+        /**
+         * distinct : 중복 제거
+         * param : -
+         */
+        List<String> distinctList = Arrays.asList("google","apple","google","samsung","apple");
+        List<String> collect1 = distinctList.stream()
+                .distinct()
+                .collect(Collectors.toList());
+        for (String s : collect1) {
+            System.out.println("s = " + s);
+        }
+
+        /**
+         * skip() : n만큼 뛰어 넘는다.
+         * param : long n
+         */
+        List<String> skipList = asList("1", "2", "3", "4", "5", "6", "7", "8");
+        List<String> collect2 = skipList.stream()
+                .skip(3)
+                .collect(Collectors.toList());
+        for (String s : collect2) {
+            System.out.println("s = " + s);
+        }
+
+        /**
+         * limit() : maxSize이후 요소를 삭제한다
+         * param : long maxSize
+         */
+        List<String> limitList = asList("1", "2", "3", "4", "5", "6", "7", "8");
+        List<String> collect3 = limitList.stream()
+                .limit(5)
+                .collect(Collectors.toList());
+
+        for (String s : collect3) {
+            System.out.println("s = " + s);
+        }
 
         /**
          * Sorting
@@ -205,7 +244,7 @@ public class PracticeStream {
         String collect = aList.stream()
                 .map(String::toUpperCase)
                 .collect(Collectors.joining());
-        String collect2 = aList.stream()
+        String collect12 = aList.stream()
                 .map(String::toUpperCase)
                 .collect(Collectors.joining(",","<",">"));
 
