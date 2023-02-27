@@ -1,8 +1,9 @@
-package casting;
+package etc;
+
+import optional.Product;
 
 public class castingPractice {
     public static void main(String[] args) {
-
 
         /**
          * 강제 형변환 - (String)
@@ -49,6 +50,17 @@ public class castingPractice {
         Object nullString = null;
         String nullStr = String.valueOf(nullString);
         System.out.println("nullStr = " + nullStr);
+
+        /**
+         * instanceof : 참조변수가 참조하고있는 인스턴스의 실제 타입을 알아보는 연산자,,
+         *   - null 참조시 false 반환(첫번째 연산임)
+         *   - 어떤 타입에 대한 instanceof 연산의 결과가 true인 경우, 검사한 타입으로 형변환이 가능함.
+         *   - 객체 instanceof 클래스 형태로 연산진행
+         */
+        Product product = new Product(5, "apple");
+        Object o = null;
+        System.out.println(o instanceof Product);
+        System.out.println(product instanceof Product);
 
 
     }
